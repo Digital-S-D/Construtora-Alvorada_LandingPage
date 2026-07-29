@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alvorada Jardins | Construtora Alvorada — Apartamentos de 2 e 3 Dormitórios</title>
+<meta name="description" content="Conheça o Alvorada Jardins: apartamentos de 2 e 3 dormitórios, lazer completo e localização estratégica. Agende sua visita e conheça as condições de lançamento.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Alvorada Jardins — Construtora Alvorada">
+<meta property="og:description" content="Apartamentos de 2 e 3 dormitórios com lazer completo. Prazo garantido em contrato. Agende sua visita.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0C1B20">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%229%22%20fill%3D%22%230C1B20%22/%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2224%22%20r%3D%229%22%20fill%3D%22%23BA8938%22/%3E%3Cpath%20d%3D%22M4%2026L20%2014L36%2026%22%20stroke%3D%22%23FBFAF7%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill%3D%22none%22/%3E%3Cpath%20d%3D%22M2%2030H38%22%20stroke%3D%22%23FBFAF7%22%20stroke-width%3D%222.6%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Construtora Alvorada",
+  "description": "Construtora e incorporadora com mais de 25 anos de mercado, responsável pelo empreendimento Alvorada Jardins.",
+  "telephone": "+55-00-0000-0000",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Sua Região",
+    "addressCountry": "BR"
+  }
+}
+</script>
+
+<style>
+/* ============================================
+   1. RESET
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { min-height: 100vh; }
+img, svg { display: block; max-width: 100%; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: none; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+table { border-collapse: collapse; width: 100%; }
+
+/* ============================================
+   2. DESIGN TOKENS
+   ============================================ */
+:root {
+  /* Cor — sistema "projeto + alvorada" */
+  --stone:        #E6E1D3;   /* concreto/pedra claro — fundo predominante */
+  --stone-deep:   #DBD5C4;   /* faixa alternada, um tom abaixo */
+  --surface:      #FBFAF7;   /* cartões, quase-branco */
+  --ink:          #181B17;   /* texto principal */
+  --ink-soft:     #55584F;   /* texto secundário */
+  --blueprint:      #1E3640; /* verde-ardósia estrutural — marca */
+  --blueprint-700:  #16292F; /* variação mais escura */
+  --blueprint-deep: #0C1B20; /* fundo escuro — hero/rodapé */
+  --brass:        #BA8938;   /* latão/dourado — CTA e acentos */
+  --brass-dark:   #96702B;
+  --brass-tint:   #F3E6C9;
+  --success:      #3B7A4E;
+  --error:        #B23A2E;
+  --border:       #CFC8B4;
+  --border-dark:  rgba(251,250,247,0.16);
+
+  /* Tipografia */
+  --font-display: 'Zilla Slab', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Espaçamento */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
+  --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px; --sp-10: 128px;
+
+  --radius-sm: 4px; --radius-md: 10px; --radius-lg: 18px;
+  --container-max: 1220px;
+  --shadow-sm: 0 2px 10px rgba(12,27,32,0.08);
+  --shadow-md: 0 10px 30px rgba(12,27,32,0.12);
+  --shadow-lg: 0 24px 60px rgba(12,27,32,0.22);
+  --header-h: 76px;
+}
+
+/* ============================================
+   3. TIPOGRAFIA BASE
+   ============================================ */
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--stone);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; color: var(--ink); }
+h1 { font-weight: 700; }
+p { color: var(--ink-soft); }
+.mono-label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+strong { font-weight: 600; color: var(--ink); }
+
+/* Foco visível (acessibilidade) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2.5px solid var(--brass);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   4. LAYOUT
+   ============================================ */
+.container { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--sp-5); }
+.section { padding-block: var(--sp-9); }
+.section--tight { padding-block: var(--sp-8); }
+.section--alt { background: var(--surface); }
+.section-head { max-width: 640px; margin-bottom: var(--sp-7); }
+.section-head.center { margin-inline: auto; text-align: center; }
+.eyebrow { color: var(--brass-dark); display: inline-flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-3); }
+.eyebrow::before { content: ""; width: 22px; height: 1.5px; background: var(--brass-dark); display: inline-block; }
+.section-head h2 { font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.6rem); margin-bottom: var(--sp-4); }
+.section-head p { font-size: 1.08rem; max-width: 54ch; }
+.section-head.center p { margin-inline: auto; }
+
+@media (min-width: 900px) {
+  .section { padding-block: var(--sp-10); }
+}
+
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+  padding: 15px 28px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.98rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+.btn-primary { background: var(--brass); color: var(--blueprint-deep); box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: #cc9a45; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-ghost-dark { border: 1.5px solid var(--border-dark); color: var(--surface); }
+.btn-ghost-dark:hover { background: rgba(251,250,247,0.08); }
+.btn-ghost-light { border: 1.5px solid var(--border); color: var(--ink); }
+.btn-ghost-light:hover { background: rgba(30,54,64,0.06); }
+.btn-block { width: 100%; }
+
+/* Crosshairs — marca de registro de desenho técnico, usada para emoldurar imagens-chave */
+.crosshair-frame { position: relative; }
+.crosshair-frame::before, .crosshair-frame::after,
+.crosshair-frame .ch-tr, .crosshair-frame .ch-br { content: ""; position: absolute; width: 18px; height: 18px; }
+.crosshair-frame::before { top: -9px; left: -9px; border-top: 1.5px solid var(--brass); border-left: 1.5px solid var(--brass); }
+.crosshair-frame::after { bottom: -9px; left: -9px; border-bottom: 1.5px solid var(--brass); border-left: 1.5px solid var(--brass); }
+.crosshair-frame .ch-tr { top: -9px; right: -9px; border-top: 1.5px solid var(--brass); border-right: 1.5px solid var(--brass); }
+.crosshair-frame .ch-br { bottom: -9px; right: -9px; border-bottom: 1.5px solid var(--brass); border-right: 1.5px solid var(--brass); }
+
+/* ============================================
+   5. COOKIE BANNER (LGPD)
+   ============================================ */
+.cookie-banner {
+  position: fixed; left: var(--sp-4); right: var(--sp-4); bottom: var(--sp-4); z-index: 200;
+  max-width: 620px; margin-inline: auto;
+  background: var(--blueprint-deep); color: var(--surface);
+  border-radius: var(--radius-md); padding: var(--sp-5); box-shadow: var(--shadow-lg);
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-4);
+  transform: translateY(140%); transition: transform 0.5s ease 0.4s;
+}
+.cookie-banner.show { transform: translateY(0); }
+.cookie-banner p { color: rgba(251,250,247,0.78); font-size: 0.88rem; flex: 1 1 260px; }
+.cookie-banner a { color: var(--brass); text-decoration: underline; }
+.cookie-banner .btn-primary { padding: 10px 20px; font-size: 0.88rem; }
+
+/* ============================================
+   6. HEADER
+   ============================================ */
+.site-header {
+  position: sticky; top: 0; z-index: 100; height: var(--header-h);
+  background: var(--blueprint-deep);
+  display: flex; align-items: center;
+  transition: box-shadow 0.25s ease;
+}
+.site-header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.28); }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.logo { display: flex; align-items: center; gap: var(--sp-3); color: var(--surface); }
+.logo-mark { width: 34px; height: 34px; flex-shrink: 0; }
+.logo-word { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.01em; }
+.logo-word span { color: var(--brass); }
+
+.main-nav { display: none; align-items: center; gap: var(--sp-7); }
+.main-nav a { color: rgba(251,250,247,0.82); font-size: 0.92rem; font-weight: 500; transition: color 0.15s ease; }
+.main-nav a:hover { color: var(--surface); }
+
+.header-actions { display: flex; align-items: center; gap: var(--sp-4); }
+.header-actions .btn-primary { display: none; padding: 11px 20px; font-size: 0.88rem; }
+
+.nav-toggle { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--surface); }
+.nav-toggle svg { width: 24px; height: 24px; }
+.nav-toggle .icon-close { display: none; }
+.nav-toggle.open .icon-menu { display: none; }
+.nav-toggle.open .icon-close { display: block; }
+
+.mobile-nav {
+  position: fixed; inset: var(--header-h) 0 0 0; z-index: 99;
+  background: var(--blueprint-deep);
+  padding: var(--sp-7) var(--sp-5);
+  display: flex; flex-direction: column; gap: var(--sp-6);
+  transform: translateX(100%); transition: transform 0.35s ease;
+  overflow-y: auto;
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav a { font-family: var(--font-display); font-size: 1.5rem; color: var(--surface); font-weight: 600; }
+.mobile-nav .btn-primary { margin-top: var(--sp-4); }
+
+@media (min-width: 900px) {
+  .main-nav { display: flex; }
+  .header-actions .btn-primary { display: inline-flex; }
+  .nav-toggle { display: none; }
+  .mobile-nav { display: none; }
+}
+
+/* ============================================
+   7. HERO
+   ============================================ */
+.hero {
+  background: var(--blueprint-deep);
+  color: var(--surface);
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--sp-8) var(--sp-9);
+}
+.hero::before {
+  /* linhas de grade sutis, referência de projeto técnico */
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(251,250,247,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251,250,247,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  pointer-events: none;
+}
+.hero .container {
+  position: relative; z-index: 1;
+  display: grid; gap: var(--sp-8);
+  align-items: center;
+}
+.hero-copy .eyebrow { color: var(--brass); }
+.hero-copy .eyebrow::before { background: var(--brass); }
+.hero-copy h1 { font-size: clamp(2.3rem, 1.7rem + 3vw, 3.6rem); margin-bottom: var(--sp-5);color: whitesmoke }
+.hero-copy p.lead { font-size: 1.15rem; color: rgba(251,250,247,0.78); max-width: 46ch; margin-bottom: var(--sp-6); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: var(--sp-4); margin-bottom: var(--sp-6); }
+.hero-checks { display: flex; flex-direction: column; gap: var(--sp-2); }
+.hero-checks li { display: flex; align-items: center; gap: var(--sp-2); font-size: 0.9rem; color: rgba(251,250,247,0.68); }
+.hero-checks svg { width: 16px; height: 16px; color: var(--brass); flex-shrink: 0; }
+
+.hero-art { position: relative; }
+.hero-art-frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 6/5; }
+.hero-art svg { width: 100%; height: 100%; }
+.title-block {
+  position: absolute; left: var(--sp-4); bottom: var(--sp-4);
+  background: rgba(12,27,32,0.72); backdrop-filter: blur(6px);
+  border: 1px solid var(--border-dark); border-radius: var(--radius-sm);
+  padding: 10px 14px; font-family: var(--font-mono); font-size: 0.68rem; color: rgba(251,250,247,0.8);
+  letter-spacing: 0.04em; line-height: 1.6;
+}
+.title-block strong { display: block; color: var(--brass); font-size: 0.72rem; letter-spacing: 0.08em; }
+
+@media (min-width: 900px) {
+  .hero { padding-block: var(--sp-9) var(--sp-10); }
+  .hero .container { grid-template-columns: 1fr 0.95fr; gap: var(--sp-9); }
+}
+
+/* ============================================
+   8. FAIXA DE TRANSIÇÃO — "amanhecer" (dark -> light) + estatísticas
+   ============================================ */
+.stats-band {
+  background: linear-gradient(180deg, var(--blueprint-deep) 0%, var(--blueprint) 42%, var(--stone) 100%);
+  padding-block: var(--sp-7) var(--sp-8);
+}
+.stats-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-6);
+  text-align: center;
+}
+.stat-num { font-family: var(--font-mono); font-weight: 600; font-size: clamp(1.8rem, 1.4rem + 1.5vw, 2.6rem); color: var(--brass); }
+.stat-label { font-size: 0.82rem; color: rgba(251,250,247,0.72); margin-top: var(--sp-2); }
+@media (min-width: 700px) {
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================
+   9. DIFERENCIAIS
+   ============================================ */
+.diferenciais-grid { display: grid; gap: var(--sp-5); grid-template-columns: 1fr; }
+.dif-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: var(--sp-6); transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dif-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.dif-icon {
+  width: 46px; height: 46px; border-radius: var(--radius-sm); background: var(--blueprint);
+  display: flex; align-items: center; justify-content: center; margin-bottom: var(--sp-5);
+}
+.dif-icon svg { width: 24px; height: 24px; color: var(--brass); }
+.dif-card h3 { font-size: 1.15rem; margin-bottom: var(--sp-2); }
+.dif-card p { font-size: 0.95rem; }
+@media (min-width: 640px) { .diferenciais-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px) { .diferenciais-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ============================================
+   10. PLANTAS
+   ============================================ */
+.plantas-grid { display: grid; gap: var(--sp-6); grid-template-columns: 1fr; }
+.planta-card {
+  background: var(--blueprint-deep); color: var(--surface);
+  border-radius: var(--radius-lg); padding: var(--sp-7);
+  display: flex; flex-direction: column; position: relative; overflow: hidden;
+}
+.planta-card::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(251,250,247,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(251,250,247,0.04) 1px, transparent 1px);
+  background-size: 28px 28px; pointer-events: none;
+}
+.planta-card > * { position: relative; z-index: 1; }
+.planta-tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--brass); margin-bottom: var(--sp-3); }
+.planta-card h3 { font-size: 1.6rem; margin-bottom: var(--sp-5); }
+.planta-specs { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-bottom: var(--sp-6); border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); padding-block: var(--sp-5); }
+.planta-spec-label { font-size: 0.72rem; color: rgba(251,250,247,0.55); margin-bottom: 4px; }
+.planta-spec-val { font-family: var(--font-mono); font-weight: 600; font-size: 1.05rem; color: var(--surface); }
+.planta-price-label { font-size: 0.82rem; color: rgba(251,250,247,0.6); }
+.planta-price { font-family: var(--font-mono); font-size: 1.5rem; color: var(--brass); font-weight: 600; margin-bottom: var(--sp-5); }
+.plantas-note { font-size: 0.8rem; color: var(--ink-soft); margin-top: var(--sp-5); font-style: italic; }
+@media (min-width: 800px) { .plantas-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ============================================
+   11. TOUR VIRTUAL
+   ============================================ */
+.tour-wrap { display: grid; gap: var(--sp-7); align-items: center; }
+.tour-card {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16/10;
+  cursor: pointer; border: none;
+}
+.tour-card svg.bg { width: 100%; height: 100%; }
+.play-btn {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(12,27,32,0.28); transition: background 0.2s ease;
+}
+.tour-card:hover .play-btn { background: rgba(12,27,32,0.42); }
+.play-circle {
+  width: 76px; height: 76px; border-radius: 50%; background: var(--brass);
+  display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg);
+  transition: transform 0.2s ease;
+}
+.tour-card:hover .play-circle { transform: scale(1.08); }
+.play-circle svg { width: 26px; height: 26px; color: var(--blueprint-deep); margin-left: 4px; }
+.tour-copy ul { display: flex; flex-direction: column; gap: var(--sp-3); margin-block: var(--sp-5) var(--sp-6); }
+.tour-copy ul li { display: flex; gap: var(--sp-3); font-size: 0.95rem; color: var(--ink-soft); }
+.tour-copy ul svg { width: 18px; height: 18px; color: var(--brass-dark); flex-shrink: 0; margin-top: 2px; }
+@media (min-width: 900px) { .tour-wrap { grid-template-columns: 1fr 1fr; } }
+
+/* ============================================
+   12. LOCALIZAÇÃO
+   ============================================ */
+.loc-wrap { display: grid; gap: var(--sp-7); align-items: start; }
+.loc-list { display: grid; gap: var(--sp-4); grid-template-columns: 1fr; }
+.loc-item { display: flex; gap: var(--sp-4); align-items: flex-start; padding: var(--sp-4); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
+.loc-item svg { width: 20px; height: 20px; color: var(--brass-dark); flex-shrink: 0; margin-top: 2px; }
+.loc-item span { font-size: 0.95rem; font-weight: 500; }
+.loc-map { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/5; background: var(--blueprint); }
+.loc-map svg { width: 100%; height: 100%; }
+@media (min-width: 640px) { .loc-list { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .loc-wrap { grid-template-columns: 1.1fr 0.9fr; } }
+
+/* ============================================
+   13. COMPARAÇÃO
+   ============================================ */
+.compare-wrap { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border); }
+.compare-hint { display: block; font-size: 0.78rem; color: var(--ink-soft); margin-top: var(--sp-3); }
+table.compare { min-width: 640px; background: var(--surface); }
+table.compare th, table.compare td { text-align: left; padding: var(--sp-5); font-size: 0.92rem; border-bottom: 1px solid var(--border); }
+table.compare thead th { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--surface); background: var(--blueprint); }
+table.compare thead th:first-child { color: rgba(251,250,247,0.6); }
+table.compare tbody th { font-weight: 600; color: var(--ink); width: 26%; }
+table.compare td:nth-child(2) { color: var(--success); font-weight: 500; }
+table.compare td:nth-child(2)::before { content: "✓ "; color: var(--success); }
+table.compare td:nth-child(3) { color: var(--ink-soft); }
+table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { border-bottom: none; }
+
+/* ============================================
+   14. DEPOIMENTOS / AUTORIDADE
+   ============================================ */
+.authority-intro { max-width: 720px; margin-bottom: var(--sp-8); font-size: 1.05rem; }
+.testimonial-grid { display: grid; gap: var(--sp-5); grid-template-columns: 1fr; }
+.testimonial-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--sp-6); display: flex; flex-direction: column; }
+.testimonial-stars { display: flex; gap: 3px; margin-bottom: var(--sp-4); }
+.testimonial-stars svg { width: 15px; height: 15px; color: var(--brass); }
+.testimonial-card p.quote { font-size: 0.98rem; color: var(--ink); flex: 1; margin-bottom: var(--sp-5); }
+.testimonial-person { display: flex; align-items: center; gap: var(--sp-3); }
+.avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--blueprint); color: var(--brass); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 600; font-size: 0.85rem; flex-shrink: 0; }
+.testimonial-person strong { display: block; font-size: 0.92rem; }
+.testimonial-person span { font-size: 0.8rem; color: var(--ink-soft); }
+@media (min-width: 900px) { .testimonial-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ============================================
+   15. FAQ
+   ============================================ */
+.faq-list { max-width: 780px; margin-inline: auto; border-top: 1px solid var(--border); }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
+  padding-block: var(--sp-5); text-align: left; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+}
+.faq-q svg { width: 20px; height: 20px; color: var(--brass-dark); flex-shrink: 0; transition: transform 0.25s ease; }
+.faq-item.open .faq-q svg { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-a p { padding-bottom: var(--sp-5); max-width: 62ch; font-size: 0.95rem; }
+.faq-item.open .faq-a { max-height: 260px; }
+
+/* ============================================
+   16. OFERTA FINAL
+   ============================================ */
+.offer {
+  background: var(--blueprint-deep); color: var(--surface); position: relative; overflow: hidden;
+}
+.offer::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 85% 20%, rgba(186,137,56,0.22), transparent 70%);
+  pointer-events: none;
+}
+.offer .container { position: relative; z-index: 1; display: grid; gap: var(--sp-8); }
+.offer-copy .eyebrow { color: var(--brass); }
+.offer-copy .eyebrow::before { background: var(--brass); }
+.offer-copy h2 { font-size: clamp(1.8rem, 1.4rem + 1.8vw, 2.5rem); margin-bottom: var(--sp-5); color: var(--surface); }
+.offer-copy p.lead { color: rgba(251,250,247,0.76); margin-bottom: var(--sp-6); max-width: 46ch; }
+.offer-points { display: flex; flex-direction: column; gap: var(--sp-4); }
+.offer-points li { display: flex; gap: var(--sp-3); align-items: flex-start; font-size: 0.95rem; color: rgba(251,250,247,0.85); }
+.offer-points svg { width: 20px; height: 20px; color: var(--brass); flex-shrink: 0; margin-top: 1px; }
+
+.offer-form {
+  background: var(--surface); border-radius: var(--radius-lg); padding: var(--sp-7); color: var(--ink);
+  box-shadow: var(--shadow-lg);
+}
+.offer-form h3 { font-size: 1.3rem; margin-bottom: var(--sp-1); }
+.offer-form .form-sub { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: var(--sp-6); }
+.field { position: relative; margin-bottom: var(--sp-5); }
+.field input, .field select {
+  width: 100%; padding: 20px 14px 8px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface); font-size: 0.98rem; color: var(--ink); transition: border-color 0.15s ease;
+}
+.field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2355584F' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.field input:focus, .field select:focus { border-color: var(--brass); outline: none; }
+.field label {
+  position: absolute; left: 14px; top: 14px; font-size: 0.98rem; color: var(--ink-soft);
+  transition: all 0.15s ease; pointer-events: none;
+}
+.field input:focus + label, .field input:not(:placeholder-shown) + label,
+.field select:focus ~ label, .field label.has-value {
+  top: 7px; font-size: 0.7rem; color: var(--brass-dark); font-weight: 600; letter-spacing: 0.02em;
+}
+.field-error { font-size: 0.78rem; color: var(--error); margin-top: 5px; display: none; }
+.field.invalid input, .field.invalid select { border-color: var(--error); }
+.field.invalid .field-error { display: block; }
+.form-microcopy { font-size: 0.76rem; color: var(--ink-soft); text-align: center; margin-top: var(--sp-4); }
+.form-microcopy a { text-decoration: underline; }
+
+.form-success { display: none; text-align: center; padding-block: var(--sp-6); }
+.form-success.show { display: block; }
+.form-success svg { width: 56px; height: 56px; color: var(--success); margin-inline: auto var(--sp-4); }
+.form-success h3 { margin-bottom: var(--sp-2); }
+.form-success p { font-size: 0.95rem; }
+.offer-form.submitted form { display: none; }
+
+@media (min-width: 900px) { .offer .container { grid-template-columns: 1fr 0.95fr; align-items: center; } }
+
+/* ============================================
+   17. RODAPÉ
+   ============================================ */
+.site-footer { background: var(--blueprint-700); color: rgba(251,250,247,0.72); padding-block: var(--sp-8) var(--sp-6); }
+.footer-top { display: grid; gap: var(--sp-7); margin-bottom: var(--sp-8); }
+.footer-brand .logo-word { color: var(--surface); }
+.footer-brand p { color: rgba(251,250,247,0.6); font-size: 0.9rem; margin-top: var(--sp-4); max-width: 34ch; }
+.footer-social { display: flex; gap: var(--sp-3); margin-top: var(--sp-5); }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border-dark); display: flex; align-items: center; justify-content: center; transition: background 0.15s ease; }
+.footer-social a:hover { background: rgba(251,250,247,0.08); }
+.footer-social svg { width: 16px; height: 16px; }
+.footer-col h4 { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass); margin-bottom: var(--sp-4); }
+.footer-col ul { display: flex; flex-direction: column; gap: var(--sp-3); }
+.footer-col a { font-size: 0.9rem; }
+.footer-col a:hover { color: var(--surface); }
+.footer-cols { display: grid; gap: var(--sp-7); grid-template-columns: repeat(2, 1fr); }
+.footer-legal { border-top: 1px solid var(--border-dark); padding-top: var(--sp-6); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.02em; color: rgba(251,250,247,0.45); display: flex; flex-direction: column; gap: var(--sp-2); }
+@media (min-width: 700px) { .footer-cols { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .footer-top { grid-template-columns: 1.3fr 2fr; } .footer-legal { flex-direction: row; justify-content: space-between; } }
+
+/* ============================================
+   18. FLUTUANTES — WhatsApp + barra fixa mobile
+   ============================================ */
+.whatsapp-fab {
+  position: fixed; right: var(--sp-5); bottom: 92px; z-index: 90;
+  width: 56px; height: 56px; border-radius: 50%; background: var(--success);
+  display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg);
+  transition: transform 0.2s ease;
+}
+.whatsapp-fab:hover { transform: scale(1.06); }
+.whatsapp-fab svg { width: 26px; height: 26px; color: #fff; }
+
+.mobile-cta-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 80;
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding: var(--sp-3) var(--sp-4); box-shadow: 0 -6px 20px rgba(0,0,0,0.08);
+}
+.mobile-cta-bar .btn-primary { width: 100%; }
+@media (min-width: 900px) {
+  .mobile-cta-bar { display: none; }
+  .whatsapp-fab { bottom: var(--sp-5); }
+}
+
+/* ============================================
+   19. REVEAL (scroll)
+   ============================================ */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Espaço para não esconder conteúdo atrás da barra fixa mobile */
+body { padding-bottom: 78px; }
+@media (min-width: 900px) { body { padding-bottom: 0; } }
+
+section[id] { scroll-margin-top: 88px; }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     CABEÇALHO
+     ============================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="Construtora Alvorada — início">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="24" r="9" fill="#BA8938"/>
+        <path d="M4 26L20 14L36 26" stroke="#FBFAF7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 30H38" stroke="#FBFAF7" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-word">Alvorada<span>.</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#plantas">Plantas</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#oferta" class="btn btn-primary" data-cta="header">Agendar Visita</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+  <a href="#diferenciais">Diferenciais</a>
+  <a href="#plantas">Plantas</a>
+  <a href="#localizacao">Localização</a>
+  <a href="#depoimentos">Depoimentos</a>
+  <a href="#faq">Dúvidas</a>
+  <a href="#oferta" class="btn btn-primary" data-cta="mobile-menu">Agendar Visita</a>
+</nav>
+
+<main id="top">
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <p class="eyebrow mono-label">Alvorada Jardins · Lançamento</p>
+      <h1>Sua Nova Vida Começa Aqui</h1>
+      <p class="lead">Apartamentos de 2 e 3 dormitórios com lazer completo, a poucos minutos de tudo o que importa. Estrutura sólida, prazo garantido em contrato e condições exclusivas de lançamento.</p>
+      <div class="hero-ctas">
+        <a href="#oferta" class="btn btn-primary" data-cta="hero-primary">
+          Quero Agendar Minha Visita
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#plantas" class="btn btn-ghost-dark">Ver as Plantas</a>
+      </div>
+      <ul class="hero-checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Sem compromisso</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Resposta em até 1h útil</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Condições exclusivas de lançamento</li>
+      </ul>
+    </div>
+
+    <div class="hero-art">
+      <div class="hero-art-frame crosshair-frame">
+        <span class="ch-tr"></span><span class="ch-br"></span>
+        <svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0C1B20"/>
+              <stop offset="55%" stop-color="#1E3640"/>
+              <stop offset="100%" stop-color="#2c4a4f"/>
+            </linearGradient>
+            <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F3E6C9"/>
+              <stop offset="45%" stop-color="#BA8938"/>
+              <stop offset="100%" stop-color="#BA8938" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="600" height="500" fill="url(#sky)"/>
+          <circle cx="300" cy="330" r="190" fill="url(#sun)" opacity="0.9"/>
+          <circle cx="300" cy="330" r="58" fill="#F3E6C9"/>
+          <!-- linhas de escala, referência de projeto -->
+          <g stroke="rgba(251,250,247,0.18)" stroke-width="1">
+            <line x1="0" y1="200" x2="600" y2="200"/>
+            <line x1="0" y1="260" x2="600" y2="260"/>
+          </g>
+          <!-- skyline -->
+          <g fill="#0C1B20">
+            <rect x="40" y="300" width="70" height="180"/>
+            <rect x="120" y="250" width="90" height="230"/>
+            <rect x="225" y="210" width="110" height="270"/>
+            <rect x="350" y="270" width="80" height="210"/>
+            <rect x="445" y="235" width="100" height="245"/>
+          </g>
+          <!-- janelas acesas -->
+          <g fill="#F3E6C9" opacity="0.85">
+            <rect x="55" y="320" width="8" height="8"/><rect x="80" y="340" width="8" height="8"/><rect x="55" y="360" width="8" height="8"/>
+            <rect x="140" y="275" width="8" height="8"/><rect x="165" y="300" width="8" height="8"/><rect x="190" y="275" width="8" height="8"/><rect x="140" y="330" width="8" height="8"/>
+            <rect x="245" y="235" width="9" height="9"/><rect x="275" y="260" width="9" height="9"/><rect x="305" y="235" width="9" height="9"/><rect x="245" y="300" width="9" height="9"/><rect x="305" y="300" width="9" height="9"/>
+            <rect x="370" y="295" width="8" height="8"/><rect x="395" y="320" width="8" height="8"/>
+            <rect x="465" y="260" width="9" height="9"/><rect x="495" y="285" width="9" height="9"/><rect x="465" y="320" width="9" height="9"/>
+          </g>
+          <line x1="0" y1="480" x2="600" y2="480" stroke="rgba(251,250,247,0.35)" stroke-width="1.5"/>
+          <!-- marcas de cota, estilo desenho técnico -->
+          <g stroke="rgba(251,250,247,0.3)" stroke-width="1">
+            <line x1="20" y1="488" x2="20" y2="496"/><line x1="580" y1="488" x2="580" y2="496"/>
+            <line x1="20" y1="492" x2="580" y2="492"/>
+          </g>
+        </svg>
+        <div class="title-block">
+          <strong>Alvorada Jardins</strong>
+          Bairro Jardim Alvorada · Esc. 1:150<br>Lançamento 2026
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FAIXA DE TRANSIÇÃO / ESTATÍSTICAS
+     ============================================ -->
+<section class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Anos de mercado</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Empreendimentos entregues</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num">5.000+</div>
+        <div class="stat-label">Famílias atendidas</div>
+      </div>
+      <div class="reveal">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Entregues no prazo contratual</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DIFERENCIAIS
+     ============================================ -->
+<section class="section" id="diferenciais" aria-labelledby="dif-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow mono-label">Por que Alvorada Jardins</p>
+      <h2 id="dif-title">Cada Detalhe Pensado Para o Seu Dia a Dia</h2>
+      <p>Menos características técnicas, mais vida real: veja o que cada diferencial significa na sua rotina.</p>
+    </div>
+
+    <div class="diferenciais-grid">
+      <div class="dif-card reveal">
+        <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-5 8 5v12"/><path d="M9.5 21v-7h5v7"/></svg></div>
+        <h3>Plantas de 2 e 3 Dormitórios</h3>
+        <p>Espaços flexíveis que acompanham cada fase da sua família — do casal que está começando até quem já pensa nos filhos.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4M7.5 7v10M16.5 7v10M20 10v4M7.5 12h9"/></svg></div>
+        <h3>Lazer Completo</h3>
+        <p>Piscina, academia, salão de festas, playground e espaço pet — tudo dentro do condomínio, sem precisar sair para aproveitar.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12.2l2 2 4-4.2"/></svg></div>
+        <h3>Segurança 24 Horas</h3>
+        <p>Portaria remota e monitoramento contínuo para você dormir tranquilo, sabendo que sua família está protegida.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c9 0 15-6.5 15-15 0-1-.1-2-.3-2.9C10.5 3.6 4 10.3 4 19c0 .4 0 .7.1 1z"/><path d="M5 20c4.3-6.5 8.7-10.8 15-15"/></svg></div>
+        <h3>Eficiência Energética</h3>
+        <p>Aquecimento solar e captação de água da chuva reduzem sua conta todo mês — e o impacto no planeta.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17.5h14M5.5 17.5a2 2 0 100-4 2 2 0 000 4zM18.5 17.5a2 2 0 100-4 2 2 0 000 4zM5 13.5l1.5-5.5h11l1.5 5.5"/></svg></div>
+        <h3>Vagas Cobertas</h3>
+        <p>Garagem coberta e segura, com espaço reservado também para os seus visitantes.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.8 7-12.3A7 7 0 105 8.7C5 14.2 12 21 12 21z"/><circle cx="12" cy="8.6" r="2.6"/></svg></div>
+        <h3>Localização Estratégica</h3>
+        <p>A poucos minutos de escolas, mercados e das principais vias da cidade — perto de tudo, longe do estresse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PLANTAS E METRAGENS
+     ============================================ -->
+<section class="section section--alt" id="plantas" aria-labelledby="plantas-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow mono-label">Plantas e Metragens</p>
+      <h2 id="plantas-title">Escolha o Tamanho que Cabe na Sua Vida</h2>
+      <p>Duas plantas pensadas para momentos diferentes — compare as opções e veja qual combina com o seu presente.</p>
+    </div>
+
+    <div class="plantas-grid">
+      <div class="planta-card reveal">
+        <p class="planta-tag mono-label">Planta A</p>
+        <h3>2 Dormitórios</h3>
+        <div class="planta-specs">
+          <div><div class="planta-spec-label">Área privativa</div><div class="planta-spec-val">58 m²</div></div>
+          <div><div class="planta-spec-label">Dormitórios</div><div class="planta-spec-val">1 suíte + 1</div></div>
+          <div><div class="planta-spec-label">Vagas</div><div class="planta-spec-val">1</div></div>
+          <div><div class="planta-spec-label">Diferencial</div><div class="planta-spec-val">Sacada gourmet</div></div>
+        </div>
+        <p class="planta-price-label">A partir de</p>
+        <p class="planta-price">R$ 320.000</p>
+        <a href="#oferta" class="btn btn-ghost-dark" data-cta="planta-a">Quero Saber Mais</a>
+      </div>
+
+      <div class="planta-card reveal">
+        <p class="planta-tag mono-label">Planta B</p>
+        <h3>3 Dormitórios</h3>
+        <div class="planta-specs">
+          <div><div class="planta-spec-label">Área privativa</div><div class="planta-spec-val">78 m²</div></div>
+          <div><div class="planta-spec-label">Dormitórios</div><div class="planta-spec-val">1 suíte + 2</div></div>
+          <div><div class="planta-spec-label">Vagas</div><div class="planta-spec-val">2</div></div>
+          <div><div class="planta-spec-label">Diferencial</div><div class="planta-spec-val">Sacada ampliada</div></div>
+        </div>
+        <p class="planta-price-label">A partir de</p>
+        <p class="planta-price">R$ 460.000</p>
+        <a href="#oferta" class="btn btn-ghost-dark" data-cta="planta-b">Quero Saber Mais</a>
+      </div>
+    </div>
+    <p class="plantas-note">*Valores e condições meramente ilustrativos para fins deste modelo, sujeitos a alteração sem aviso prévio. Consulte a tabela vigente com um consultor.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     TOUR VIRTUAL
+     ============================================ -->
+<section class="section" aria-labelledby="tour-title">
+  <div class="container">
+    <div class="tour-wrap">
+      <button class="tour-card reveal" id="tourCard" aria-label="Assistir ao tour virtual do apartamento decorado">
+        <svg class="bg" viewBox="0 0 600 375" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="tourSky" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1E3640"/>
+              <stop offset="100%" stop-color="#0C1B20"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="375" fill="url(#tourSky)"/>
+          <g stroke="rgba(251,250,247,0.14)" stroke-width="1">
+            <line x1="0" y1="90" x2="600" y2="90"/><line x1="0" y1="180" x2="600" y2="180"/><line x1="0" y1="270" x2="600" y2="270"/>
+            <line x1="150" y1="0" x2="150" y2="375"/><line x1="300" y1="0" x2="300" y2="375"/><line x1="450" y1="0" x2="450" y2="375"/>
+          </g>
+          <rect x="120" y="140" width="360" height="150" fill="none" stroke="#BA8938" stroke-width="1.5" stroke-dasharray="6 5"/>
+        </svg>
+        <span class="play-btn">
+          <span class="play-circle">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </span>
+      </button>
+
+      <div class="tour-copy">
+        <p class="eyebrow mono-label reveal">Conheça por Dentro</p>
+        <h2 id="tour-title" class="reveal">Ainda Não Dá Para Visitar? Comece Pelo Tour Virtual</h2>
+        <p class="reveal">Explore o apartamento decorado em detalhes, no seu tempo, antes mesmo de marcar sua visita presencial.</p>
+        <ul class="reveal">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Percurso completo pelas áreas comuns</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Apartamento decorado, cômodo a cômodo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Sem cadastro obrigatório para assistir</li>
+        </ul>
+        <a href="#oferta" class="btn btn-ghost-light reveal">Prefiro Agendar Visita Presencial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     LOCALIZAÇÃO
+     ============================================ -->
+<section class="section section--alt" id="localizacao" aria-labelledby="loc-title">
+  <div class="container">
+    <div class="loc-wrap">
+      <div>
+        <div class="section-head reveal">
+          <p class="eyebrow mono-label">Onde Você Vai Viver</p>
+          <h2 id="loc-title">Perto de Tudo o Que a Sua Rotina Precisa</h2>
+          <p>O Alvorada Jardins fica em uma região que reduz seus deslocamentos e devolve tempo para o que importa.</p>
+        </div>
+        <div class="loc-list">
+          <div class="loc-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.8 7-12.3A7 7 0 105 8.7C5 14.2 12 21 12 21z"/><circle cx="12" cy="8.6" r="2.6"/></svg><span>Escolas renomadas a poucos minutos</span></div>
+          <div class="loc-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.8 7-12.3A7 7 0 105 8.7C5 14.2 12 21 12 21z"/><circle cx="12" cy="8.6" r="2.6"/></svg><span>Mercados e farmácias no entorno</span></div>
+          <div class="loc-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.8 7-12.3A7 7 0 105 8.7C5 14.2 12 21 12 21z"/><circle cx="12" cy="8.6" r="2.6"/></svg><span>Parque e área verde nas proximidades</span></div>
+          <div class="loc-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.8 7-12.3A7 7 0 105 8.7C5 14.2 12 21 12 21z"/><circle cx="12" cy="8.6" r="2.6"/></svg><span>Fácil acesso às principais vias da cidade</span></div>
+          <div class="loc-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.8 7-12.3A7 7 0 105 8.7C5 14.2 12 21 12 21z"/><circle cx="12" cy="8.6" r="2.6"/></svg><span>Transporte público a poucos passos</span></div>
+          <div class="loc-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.8 7-12.3A7 7 0 105 8.7C5 14.2 12 21 12 21z"/><circle cx="12" cy="8.6" r="2.6"/></svg><span>Hospital e unidades de saúde próximos</span></div>
+        </div>
+      </div>
+
+      <div class="loc-map reveal" aria-hidden="true">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+          <rect width="400" height="500" fill="#1E3640"/>
+          <g stroke="rgba(251,250,247,0.25)" stroke-width="1.4">
+            <path d="M0 120 H400"/><path d="M0 260 H400"/><path d="M0 380 H400"/>
+            <path d="M110 0 V500"/><path d="M290 0 V500"/>
+          </g>
+          <g stroke="rgba(251,250,247,0.4)" stroke-width="2.4" fill="none">
+            <path d="M0 200 C 120 200, 140 160, 290 160 S 400 220 400 220"/>
+          </g>
+          <circle cx="200" cy="230" r="10" fill="#BA8938"/>
+          <circle cx="200" cy="230" r="20" fill="none" stroke="#BA8938" stroke-width="1.4" opacity="0.6"/>
+          <circle cx="200" cy="230" r="32" fill="none" stroke="#BA8938" stroke-width="1" opacity="0.35"/>
+          <text x="200" y="270" text-anchor="middle" fill="#F3E6C9" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1">ALVORADA JARDINS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     COMPARAÇÃO
+     ============================================ -->
+<section class="section" aria-labelledby="compare-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow mono-label">Alvorada vs. Mercado</p>
+      <h2 id="compare-title">Por Que Comprar com a Alvorada</h2>
+      <p>Colocamos lado a lado o que realmente diferencia uma construtora estabelecida do restante do mercado.</p>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr><th>Critério</th><th>Construtora Alvorada</th><th>Média do mercado</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Prazo de entrega</th><td>Histórico de 100% dos empreendimentos entregues no prazo contratual</td><td>Atrasos são comuns no setor</td></tr>
+          <tr><th>Suporte pós-obra</th><td>5 anos de assistência técnica dedicada</td><td>Normalmente limitado ao mínimo legal</td></tr>
+          <tr><th>Documentação</th><td>Incorporação e registro regularizados desde o lançamento</td><td>Pendências frequentes até a entrega</td></tr>
+          <tr><th>Financiamento</th><td>Equipe própria ajuda a negociar com os principais bancos</td><td>Comprador negocia sozinho</td></tr>
+          <tr><th>Acabamento</th><td>Opções de personalização disponíveis</td><td>Padrão único, sem opção de escolha</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <span class="compare-hint">Arraste para o lado para ver a tabela completa →</span>
+  </div>
+</section>
+
+<!-- ============================================
+     DEPOIMENTOS + AUTORIDADE
+     ============================================ -->
+<section class="section section--alt" id="depoimentos" aria-labelledby="depo-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow mono-label">25 Anos Construindo Confiança</p>
+      <h2 id="depo-title">Quem Já Vive Essa História</h2>
+    </div>
+    <p class="authority-intro reveal">Há mais de 25 anos a Construtora Alvorada projeta e constrói endereços pensados para durar gerações — com o mesmo cuidado do primeiro tijolo ao último acabamento. São mais de 50 empreendimentos entregues e milhares de famílias que trocaram a expectativa pela mudança.</p>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+        </div>
+        <p class="quote">"A obra terminou antes do que eu esperava, e o acabamento é exatamente como no decorado. Me senti segura do início ao fim."</p>
+        <div class="testimonial-person">
+          <div class="avatar">MS</div>
+          <div><strong>Mariana S.</strong><span>Moradora desde 2024</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+        </div>
+        <p class="quote">"Comparei três construtoras antes de decidir. A transparência da Alvorada sobre prazos e valores fez toda a diferença."</p>
+        <div class="testimonial-person">
+          <div class="avatar">RT</div>
+          <div><strong>Rafael T.</strong><span>Morador desde 2023</span></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7-6.2-3.6L5.8 21l1.4-7L2 8.3l7-.8z"/></svg>
+        </div>
+        <p class="quote">"O suporte depois da entrega surpreendeu a gente. Qualquer dúvida, tem alguém pra resolver rápido."</p>
+        <div class="testimonial-person">
+          <div class="avatar">CD</div>
+          <div><strong>Camila e Diego</strong><span>Moradores desde 2022</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FAQ
+     ============================================ -->
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow mono-label" style="justify-content:center;">Tire Suas Dúvidas</p>
+      <h2 id="faq-title">Perguntas Frequentes</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q"><span>Posso financiar mesmo com restrição no nome?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Cada caso é analisado individualmente pelos bancos parceiros. Nossa equipe de negociação ajuda você a entender as opções disponíveis e encontrar o caminho mais viável para o seu perfil.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Qual o prazo de entrega e o que acontece se atrasar?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>O prazo está previsto em contrato. Em caso de atraso além do período de tolerância legal, a Alvorada paga multa contratual — um compromisso formal, não apenas uma promessa.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Quanto preciso de entrada?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>As condições variam conforme a planta escolhida e a fase do lançamento. Durante o período especial de lançamento, trabalhamos com entrada facilitada e parcelada direto com a construtora.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Posso usar o FGTS na compra?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Sim, o uso do FGTS é possível para quem se enquadra nas regras do programa, geralmente combinado ao financiamento bancário. Nossa equipe orienta você em cada etapa.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>O imóvel é entregue com que padrão de acabamento?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>O Alvorada Jardins é entregue com acabamento de alto padrão em áreas comuns e unidades, com opções de personalização disponíveis conforme a fase da obra.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Existe taxa de corretagem ou custo extra?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>Os custos de corretagem, quando aplicáveis, são informados de forma clara antes da assinatura — sem surpresas na hora de fechar negócio.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     OFERTA FINAL
+     ============================================ -->
+<section class="section offer" id="oferta" aria-labelledby="offer-title">
+  <div class="container">
+    <div class="offer-copy">
+      <p class="eyebrow mono-label reveal">Condições de Lançamento</p>
+      <h2 id="offer-title" class="reveal">As Melhores Condições Estão Nesta Fase</h2>
+      <p class="lead reveal">Nas primeiras fases de lançamento, a Alvorada oferece as condições mais vantajosas de todo o empreendimento — e elas não se repetem depois.</p>
+      <ul class="offer-points reveal">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12.2l2 2 4-4.2"/></svg> Entrega garantida em contrato, com multa por atraso prevista em lei</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> Tabela de lançamento válida por tempo limitado ou enquanto durarem as unidades desta fase</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg> Agendamento sem custo e sem compromisso de compra</li>
+      </ul>
+    </div>
+
+    <div class="offer-form reveal" id="offerForm">
+      <form id="leadForm" novalidate>
+        <h3>Quero Garantir Minhas Condições</h3>
+        <p class="form-sub">Preencha e um consultor entra em contato em até 1 hora útil.</p>
+
+        <div class="field">
+          <input type="text" id="fName" placeholder=" " required autocomplete="name">
+          <label for="fName">Nome completo</label>
+          <span class="field-error">Digite seu nome completo.</span>
+        </div>
+
+        <div class="field">
+          <input type="tel" id="fPhone" placeholder=" " required autocomplete="tel" inputmode="numeric" maxlength="16">
+          <label for="fPhone">WhatsApp com DDD</label>
+          <span class="field-error">Digite um telefone válido com DDD.</span>
+        </div>
+
+        <div class="field">
+          <input type="email" id="fEmail" placeholder=" " required autocomplete="email">
+          <label for="fEmail">E-mail</label>
+          <span class="field-error">Digite um e-mail válido.</span>
+        </div>
+
+        <div class="field">
+          <select id="fInterest" required>
+            <option value="" disabled selected></option>
+            <option value="planta-a">Planta A — 2 dormitórios</option>
+            <option value="planta-b">Planta B — 3 dormitórios</option>
+            <option value="indeciso">Ainda estou decidindo</option>
+          </select>
+          <label for="fInterest">Tenho interesse em</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" data-cta="offer-form-submit">Quero Agendar Minha Visita</button>
+        <p class="form-microcopy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>. Sem spam, sem compromisso.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+        <h3>Recebemos seu contato!</h3>
+        <p>Um consultor da Alvorada vai falar com você pelo WhatsApp em breve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================
+     RODAPÉ
+     ============================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo" aria-label="Construtora Alvorada">
+          <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="24" r="9" fill="#BA8938"/>
+            <path d="M4 26L20 14L36 26" stroke="#FBFAF7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 30H38" stroke="#FBFAF7" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-word">Alvorada<span>.</span></span>
+        </a>
+        <p>Há mais de 25 anos projetando e construindo endereços para a vida real.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 21v-8h3l.5-4H14V6.5c0-1.2.4-2 2.2-2H17.5V1.2C17 1.1 15.9 1 14.7 1 12 1 10.2 2.6 10.2 5.5V9H7v4h3.2v8z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10.5 9.3l5 2.7-5 2.7z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5A8.4 8.4 0 0112.1 20a8.5 8.5 0 01-4-1L3 20l1.1-4.9a8.4 8.4 0 1116.9-3.6z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Empreendimento</h4>
+          <ul>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#plantas">Plantas e metragens</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="#">Sobre a Alvorada</a></li>
+            <li><a href="#">Trabalhe conosco</a></li>
+            <li><a href="#">Imprensa</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Aviso de Cookies (LGPD)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <span>CRECI-J [00.000] · CNPJ [00.000.000/0001-00] · Incorporação registrada sob matrícula nº [00.000]</span>
+      <span>© 2026 Construtora Alvorada. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     FLUTUANTES
+     ============================================ -->
+<a href="#" class="whatsapp-fab" id="whatsappFab" aria-label="Falar no WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5A8.4 8.4 0 0112.1 20a8.5 8.5 0 01-4-1L3 20l1.1-4.9a8.4 8.4 0 1116.9-3.6z"/></svg>
+</a>
+
+<div class="mobile-cta-bar">
+  <a href="#oferta" class="btn btn-primary" data-cta="mobile-sticky">Agendar Minha Visita</a>
+</div>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>Usamos cookies para melhorar sua experiência e personalizar conteúdo. Ao continuar navegando, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
+  <button class="btn btn-primary" id="cookieAccept">Aceitar</button>
+</div>
+
+<!-- ============================================
+     SCRIPT
+     ============================================ -->
+<script>
+(function () {
+  "use strict";
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- dataLayer / rastreamento (Seção 4 do briefing) ---
+     Substitua GTM-XXXXXXX pelo container real do Google Tag Manager.
+     Os eventos abaixo já disparam para o dataLayer e ficam prontos
+     para serem lidos assim que o GTM for instalado. */
+  window.dataLayer = window.dataLayer || [];
+  function track(event, data) {
+    window.dataLayer.push(Object.assign({ event: event }, data || {}));
+  }
+  track('page_view', { page: 'landing_alvorada_jardins' });
+
+  /* Profundidade de rolagem: 25/50/75% */
+  var scrollMarks = { 25: false, 50: false, 75: false };
+  window.addEventListener('scroll', function () {
+    var pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75].forEach(function (m) {
+      if (pct >= m && !scrollMarks[m]) { scrollMarks[m] = true; track('scroll_depth', { percent: m }); }
+    });
+  }, { passive: true });
+
+  /* Clique em qualquer CTA rastreado */
+  document.querySelectorAll('[data-cta]').forEach(function (el) {
+    el.addEventListener('click', function () { track('cta_click', { cta_id: el.getAttribute('data-cta') }); });
+  });
+
+  /* --- Header: sombra ao rolar --- */
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function () {
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  }, { passive: true });
+
+  /* --- Menu mobile --- */
+  var navToggle = document.getElementById('navToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', function () {
+    var open = mobileNav.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileNav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      mobileNav.classList.remove('open');
+      navToggle.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* --- FAQ acordeão --- */
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    item.querySelector('.faq-q').addEventListener('click', function () {
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (o) { o.classList.remove('open'); });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* --- Tour virtual: leva até o formulário de captação --- */
+  document.getElementById('tourCard').addEventListener('click', function () {
+    track('cta_click', { cta_id: 'tour_virtual_play' });
+    document.getElementById('oferta').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  /* --- Máscara de telefone (BR): (99) 99999-9999 ou (99) 9999-9999 --- */
+  function maskPhoneBR(value) {
+    var v = value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 10) v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    else if (v.length > 6) v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    else if (v.length > 2) v = v.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+    else if (v.length > 0) v = v.replace(/(\d{0,2})/, '($1');
+    return v;
+  }
+  var phoneInput = document.getElementById('fPhone');
+  phoneInput.addEventListener('input', function () {
+    var cursorFromEnd = phoneInput.value.length - phoneInput.selectionStart;
+    phoneInput.value = maskPhoneBR(phoneInput.value);
+    var pos = phoneInput.value.length - cursorFromEnd;
+    phoneInput.setSelectionRange(pos, pos);
+  });
+
+  /* --- Formulário: validação inline + estado de sucesso --- */
+  var form = document.getElementById('leadForm');
+  var fields = {
+    fName: { el: document.getElementById('fName'), test: function (v) { return v.trim().length > 3; } },
+    fPhone: { el: document.getElementById('fPhone'), test: function (v) { return v.replace(/\D/g, '').length >= 10; } },
+    fEmail: { el: document.getElementById('fEmail'), test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } },
+    fInterest: { el: document.getElementById('fInterest'), test: function (v) { return v !== ''; } }
+  };
+
+  function validateField(key) {
+    var f = fields[key];
+    var wrap = f.el.closest('.field');
+    var valid = f.test(f.el.value);
+    wrap.classList.toggle('invalid', !valid);
+    if (f.el.tagName === 'SELECT') wrap.querySelector('label').classList.toggle('has-value', f.el.value !== '');
+    return valid;
+  }
+
+  Object.keys(fields).forEach(function (key) {
+    var el = fields[key].el;
+    el.addEventListener('blur', function () { validateField(key); });
+    el.addEventListener('change', function () { validateField(key); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var allValid = Object.keys(fields).map(validateField).every(Boolean);
+    if (!allValid) return;
+
+    /* Integração real: envie os dados para o CRM/backend aqui
+       (ex.: RD Station, HubSpot, endpoint próprio) antes de exibir o sucesso. */
+    track('generate_lead', {
+      interest: fields.fInterest.el.value
+    });
+
+    document.getElementById('offerForm').classList.add('submitted');
+    document.getElementById('formSuccess').classList.add('show');
+  });
+
+  /* --- Banner de cookies --- */
+  var cookieBanner = document.getElementById('cookieBanner');
+  setTimeout(function () { cookieBanner.classList.add('show'); }, 900);
+  document.getElementById('cookieAccept').addEventListener('click', function () {
+    cookieBanner.classList.remove('show');
+  });
+
+  /* --- WhatsApp flutuante --- */
+  document.getElementById('whatsappFab').addEventListener('click', function (e) {
+    track('cta_click', { cta_id: 'whatsapp_fab' });
+  });
+  document.getElementById('whatsappFab').href =
+    'https://wa.me/5500000000000?text=' + encodeURIComponent('Olá! Vi a página do Alvorada Jardins e quero saber mais.');
+
+  /* --- Revelar ao rolar --- */
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
