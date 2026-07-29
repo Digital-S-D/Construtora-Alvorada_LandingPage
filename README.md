@@ -1,4 +1,4 @@
-# Alvorada Jardins — Landing Page
+#Landing Page
 
 Landing page da Construtora Alvorada
 
