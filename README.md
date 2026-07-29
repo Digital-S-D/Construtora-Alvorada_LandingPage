@@ -1,5 +1,3 @@
-#Landing Page
-
 Landing page da Construtora Alvorada
 
 ## O que é
