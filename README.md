@@ -20,16 +20,6 @@ python3 -m http.server 8000
 npx serve .
 ```
 
-## Antes de publicar — troque os placeholders
-
-- [ ] Preços e metragens das plantas
-- [ ] Número de WhatsApp (`href` do botão flutuante)
-- [ ] CRECI, CNPJ e matrícula de incorporação (rodapé)
-- [ ] Telefone e região no JSON-LD (`<script type="application/ld+json">`)
-- [ ] Depoimentos (hoje são ilustrativos)
-- [ ] Conectar o formulário a um CRM real (RD Station, HubSpot, etc.) — hoje ele só simula o envio
-- [ ] Adicionar o container do GTM (`GTM-XXXXXXX`) para ativar o rastreamento
-
 ## Personalização
 
 Cores, tipografia e espaçamentos ficam centralizados no bloco `:root` do CSS — mudar ali reflete na página inteira automaticamente.
