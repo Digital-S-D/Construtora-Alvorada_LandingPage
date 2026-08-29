@@ -15,15 +15,16 @@ table { border-collapse: collapse; width: 100%; }
    2. DESIGN TOKENS
    ============================================ */
 :root {
-  --stone:        #E6E1D3;
-  --stone-deep:   #DBD5C4;
-  --surface:      #FBFAF7;
-  --ink:          #181B17;
-  --ink-soft:     #55584F;
-  --blueprint:      #1E3640;
-  --blueprint-700:  #16292F;
-  --blueprint-deep: #0C1B20;
-  --brass:        #BA8938;
+  /* Cor — sistema "projeto + alvorada" */
+  --stone:        #E6E1D3;   /* concreto/pedra claro — fundo predominante */
+  --stone-deep:   #DBD5C4;   /* faixa alternada, um tom abaixo */
+  --surface:      #FBFAF7;   /* cartões, quase-branco */
+  --ink:          #181B17;   /* texto principal */
+  --ink-soft:     #55584F;   /* texto secundário */
+  --blueprint:      #1E3640; /* verde-ardósia estrutural — marca */
+  --blueprint-700:  #16292F; /* variação mais escura */
+  --blueprint-deep: #0C1B20; /* fundo escuro — hero/rodapé */
+  --brass:        #BA8938;   /* latão/dourado — CTA e acentos */
   --brass-dark:   #96702B;
   --brass-tint:   #F3E6C9;
   --success:      #3B7A4E;
@@ -31,10 +32,12 @@ table { border-collapse: collapse; width: 100%; }
   --border:       #CFC8B4;
   --border-dark:  rgba(251,250,247,0.16);
 
+  /* Tipografia */
   --font-display: 'Zilla Slab', serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
+  /* Espaçamento */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
   --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px; --sp-10: 128px;
 
@@ -69,6 +72,7 @@ p { color: var(--ink-soft); }
 }
 strong { font-weight: 600; color: var(--ink); }
 
+/* Foco visível (acessibilidade) */
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
   outline: 2.5px solid var(--brass);
   outline-offset: 3px;
@@ -94,6 +98,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .section { padding-block: var(--sp-10); }
 }
 
+/* Botões */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
   padding: 15px 28px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.98rem;
@@ -109,6 +114,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .btn-ghost-light:hover { background: rgba(30,54,64,0.06); }
 .btn-block { width: 100%; }
 
+/* Crosshairs — marca de registro de desenho técnico, usada para emoldurar imagens-chave */
 .crosshair-frame { position: relative; }
 .crosshair-frame::before, .crosshair-frame::after,
 .crosshair-frame .ch-tr, .crosshair-frame .ch-br { content: ""; position: absolute; width: 18px; height: 18px; }
@@ -192,6 +198,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding-block: var(--sp-8) var(--sp-9);
 }
 .hero::before {
+  /* linhas de grade sutis, referência de projeto técnico */
   content: "";
   position: absolute; inset: 0;
   background-image:
@@ -488,7 +495,82 @@ table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { bor
   .reveal { opacity: 1; transform: none; }
 }
 
+/* Espaço para não esconder conteúdo atrás da barra fixa mobile */
 body { padding-bottom: 78px; }
 @media (min-width: 900px) { body { padding-bottom: 0; } }
 
 section[id] { scroll-margin-top: 88px; }
+
+/* ============================================
+   20. BANNER DE COOKIES — categorias e painel de preferências
+   ============================================ */
+.cookie-banner { max-width: 520px; align-items: stretch; flex-direction: column; gap: var(--sp-4); }
+.cookie-view p { color: rgba(251,250,247,0.78); font-size: 0.88rem; }
+.cookie-view p a { color: var(--brass); text-decoration: underline; }
+.cookie-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-4); }
+.cookie-actions .btn { padding: 10px 18px; font-size: 0.86rem; }
+.cookie-actions .btn-ghost-light { border-color: var(--border-dark); color: var(--surface); }
+.cookie-actions .btn-ghost-light:hover { background: rgba(251,250,247,0.08); }
+
+.cookie-prefs-intro { margin-bottom: var(--sp-3); }
+.cookie-category { border-top: 1px solid var(--border-dark); padding-block: var(--sp-3); }
+.cookie-category-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); margin-bottom: 4px; }
+.cookie-category-head span:first-child, .cookie-category-head label { font-weight: 600; font-size: 0.9rem; color: var(--surface); }
+.cookie-category p { font-size: 0.82rem; margin: 0; }
+
+.cookie-toggle {
+  position: relative; width: 40px; height: 22px; border-radius: var(--radius-full, 999px);
+  background: rgba(251,250,247,0.22); flex-shrink: 0; transition: background 0.15s ease;
+}
+.cookie-toggle-dot {
+  position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--surface); transition: transform 0.15s ease;
+}
+.cookie-toggle.on { background: var(--brass); }
+.cookie-toggle.on .cookie-toggle-dot { transform: translateX(18px); }
+.cookie-toggle--locked { background: var(--brass-dark); opacity: 0.7; cursor: not-allowed; }
+.cookie-toggle--locked .cookie-toggle-dot { transform: translateX(18px); }
+
+@media (max-width: 480px) {
+  .cookie-banner { left: var(--sp-3); right: var(--sp-3); max-height: 80vh; overflow-y: auto; }
+}
+
+/* ============================================
+   21. CHECKBOX DE CONSENTIMENTO (formulário)
+   ============================================ */
+.field-consent { display: flex; align-items: flex-start; gap: var(--sp-3); margin-bottom: var(--sp-5); }
+.field-consent input[type="checkbox"] {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--brass); cursor: pointer;
+}
+.field-consent label { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.5; }
+.field-consent label a { color: var(--brass-dark); text-decoration: underline; }
+.field-consent.invalid label { color: var(--error); }
+.field-consent .field-error { display: none; font-size: 0.78rem; color: var(--error); margin-top: 4px; }
+.field-consent.invalid .field-error { display: block; }
+
+/* ============================================
+   22. PÁGINAS LEGAIS (Privacidade / Termos / Cookies)
+   ============================================ */
+.legal-hero { background: var(--blueprint-deep); color: var(--surface); padding-block: var(--sp-8) var(--sp-7); }
+.legal-back { display: inline-flex; align-items: center; gap: var(--sp-2); font-size: 0.88rem; color: rgba(251,250,247,0.72); margin-bottom: var(--sp-5); }
+.legal-back:hover { color: var(--surface); }
+.legal-back svg { width: 16px; height: 16px; }
+.legal-hero h1 { color: var(--surface); font-size: clamp(1.9rem, 1.5rem + 2vw, 2.8rem); margin-bottom: var(--sp-3); }
+.legal-updated { font-family: var(--font-mono); font-size: 0.76rem; color: rgba(251,250,247,0.6); letter-spacing: 0.03em; }
+
+.legal-content { max-width: 74ch; padding-block: var(--sp-8); }
+.legal-content h2 { font-size: 1.35rem; margin-top: var(--sp-8); margin-bottom: var(--sp-4); }
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content p { margin-bottom: var(--sp-4); font-size: 1rem; }
+.legal-content ul, .legal-content ol { margin: 0 0 var(--sp-4) var(--sp-5); color: var(--ink-soft); }
+.legal-content li { margin-bottom: var(--sp-2); font-size: 0.98rem; }
+.legal-content strong { color: var(--ink); }
+.legal-content .legal-flag {
+  background: var(--brass-tint); border: 1px solid var(--brass); border-radius: var(--radius-sm);
+  padding: 2px 8px; font-family: var(--font-mono); font-size: 0.82em; color: var(--brass-dark);
+}
+.legal-content .legal-note {
+  background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--brass);
+  border-radius: var(--radius-sm); padding: var(--sp-4) var(--sp-5); margin-bottom: var(--sp-5); font-size: 0.92rem;
+}
+.legal-manage-btn { margin-top: var(--sp-3); }

@@ -33,7 +33,7 @@
 
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="home">
 
 <!-- ============================================
      CABEÇALHO
@@ -120,10 +120,12 @@
           <rect width="600" height="500" fill="url(#sky)"/>
           <circle cx="300" cy="330" r="190" fill="url(#sun)" opacity="0.9"/>
           <circle cx="300" cy="330" r="58" fill="#F3E6C9"/>
+          <!-- linhas de escala, referência de projeto -->
           <g stroke="rgba(251,250,247,0.18)" stroke-width="1">
             <line x1="0" y1="200" x2="600" y2="200"/>
             <line x1="0" y1="260" x2="600" y2="260"/>
           </g>
+          <!-- skyline -->
           <g fill="#0C1B20">
             <rect x="40" y="300" width="70" height="180"/>
             <rect x="120" y="250" width="90" height="230"/>
@@ -131,6 +133,7 @@
             <rect x="350" y="270" width="80" height="210"/>
             <rect x="445" y="235" width="100" height="245"/>
           </g>
+          <!-- janelas acesas -->
           <g fill="#F3E6C9" opacity="0.85">
             <rect x="55" y="320" width="8" height="8"/><rect x="80" y="340" width="8" height="8"/><rect x="55" y="360" width="8" height="8"/>
             <rect x="140" y="275" width="8" height="8"/><rect x="165" y="300" width="8" height="8"/><rect x="190" y="275" width="8" height="8"/><rect x="140" y="330" width="8" height="8"/>
@@ -139,6 +142,7 @@
             <rect x="465" y="260" width="9" height="9"/><rect x="495" y="285" width="9" height="9"/><rect x="465" y="320" width="9" height="9"/>
           </g>
           <line x1="0" y1="480" x2="600" y2="480" stroke="rgba(251,250,247,0.35)" stroke-width="1.5"/>
+          <!-- marcas de cota, estilo desenho técnico -->
           <g stroke="rgba(251,250,247,0.3)" stroke-width="1">
             <line x1="20" y1="488" x2="20" y2="496"/><line x1="580" y1="488" x2="580" y2="496"/>
             <line x1="20" y1="492" x2="580" y2="492"/>
@@ -531,8 +535,14 @@
           <label for="fInterest">Tenho interesse em</label>
         </div>
 
+        <div class="field-consent">
+          <input type="checkbox" id="fConsent" required>
+          <label for="fConsent">Li e concordo com a <a href="privacidade.html">Política de Privacidade</a> e autorizo o uso dos meus dados para que a Alvorada entre em contato comigo.</label>
+          <span class="field-error">É preciso aceitar a Política de Privacidade para enviar.</span>
+        </div>
+
         <button type="submit" class="btn btn-primary btn-block" data-cta="offer-form-submit">Quero Agendar Minha Visita</button>
-        <p class="form-microcopy">Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>. Sem spam, sem compromisso.</p>
+        <p class="form-microcopy">Sem spam, sem compromisso. Você pode cancelar o contato quando quiser.</p>
       </form>
 
       <div class="form-success" id="formSuccess">
@@ -590,9 +600,9 @@
         <div class="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="#">Política de Privacidade</a></li>
-            <li><a href="#">Termos de Uso</a></li>
-            <li><a href="#">Aviso de Cookies (LGPD)</a></li>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="termos.html">Termos de Uso</a></li>
+            <li><a href="cookies.html">Aviso de Cookies (LGPD)</a></li>
           </ul>
         </div>
       </div>
@@ -616,9 +626,48 @@
   <a href="#oferta" class="btn btn-primary" data-cta="mobile-sticky">Agendar Minha Visita</a>
 </div>
 
-<div class="cookie-banner" id="cookieBanner">
-  <p>Usamos cookies para melhorar sua experiência e personalizar conteúdo. Ao continuar navegando, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
-  <button class="btn btn-primary" id="cookieAccept">Aceitar</button>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Preferências de cookies">
+  <div class="cookie-view" id="cookieMainView">
+    <p>Usamos cookies essenciais para o site funcionar. Cookies de análise e marketing só são ativados com a sua permissão. Veja detalhes na <a href="cookies.html">Política de Cookies</a> e na <a href="privacidade.html">Política de Privacidade</a>.</p>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-ghost-light" id="cookieCustomize">Personalizar</button>
+      <button type="button" class="btn btn-ghost-light" id="cookieReject">Recusar não essenciais</button>
+      <button type="button" class="btn btn-primary" id="cookieAcceptAll">Aceitar todos</button>
+    </div>
+  </div>
+
+  <div class="cookie-view" id="cookiePrefsView" hidden>
+    <p class="cookie-prefs-intro">Escolha quais categorias de cookies podem ser usadas neste site.</p>
+
+    <div class="cookie-category">
+      <div class="cookie-category-head">
+        <span>Necessários</span>
+        <span class="cookie-toggle cookie-toggle--locked" aria-hidden="true"><span class="cookie-toggle-dot"></span></span>
+      </div>
+      <p>Essenciais para o site funcionar, como lembrar sua escolha de cookies. Não podem ser desativados.</p>
+    </div>
+
+    <div class="cookie-category">
+      <div class="cookie-category-head">
+        <label for="cookieAnalytics">Analíticos</label>
+        <button type="button" class="cookie-toggle" id="cookieAnalytics" role="switch" aria-checked="false"><span class="cookie-toggle-dot"></span></button>
+      </div>
+      <p>Ajudam a entender como o site é usado. Só entram em uso quando ativados aqui.</p>
+    </div>
+
+    <div class="cookie-category">
+      <div class="cookie-category-head">
+        <label for="cookieMarketing">Marketing</label>
+        <button type="button" class="cookie-toggle" id="cookieMarketing" role="switch" aria-checked="false"><span class="cookie-toggle-dot"></span></button>
+      </div>
+      <p>Usados para anúncios mais relevantes em outras plataformas. Só entram em uso quando ativados aqui.</p>
+    </div>
+
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-ghost-light" id="cookieBack">Voltar</button>
+      <button type="button" class="btn btn-primary" id="cookieSavePrefs">Salvar preferências</button>
+    </div>
+  </div>
 </div>
 
 <!-- ============================================
