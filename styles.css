@@ -574,3 +574,18 @@ section[id] { scroll-margin-top: 88px; }
   border-radius: var(--radius-sm); padding: var(--sp-4) var(--sp-5); margin-bottom: var(--sp-5); font-size: 0.92rem;
 }
 .legal-manage-btn { margin-top: var(--sp-3); }
+/* Contexto da demonstração e estados acessíveis. */
+.demo-notice { background: var(--brass-tint); padding: 12px 0; font-size: .85rem; }
+.demo-notice p, .demo-notice strong { color: var(--ink); }
+.demo-notice a { text-decoration: underline; text-underline-offset: 3px; }
+.tour-card { cursor: default; }
+fieldset { border: 0; min-width: 0; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.field-consent { display: grid; grid-template-columns: 18px 1fr; }
+.field-consent .field-error { grid-column: 2; }
+.field .field-error, .field-consent .field-error { display: block; visibility: hidden; }
+.field.invalid .field-error, .field-consent.invalid .field-error { visibility: visible; }
+.form-success button { margin-top: 20px; white-space: normal; }
+.mobile-nav:not(.open) { visibility: hidden; }
+.mobile-nav.open { visibility: visible; }
+@media (max-width: 599px) { .offer-form { padding: 24px; } .btn { white-space: normal; text-align: center; } }

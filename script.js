@@ -51,31 +51,45 @@
       a.addEventListener('click', function () {
         mobileNav.classList.remove('open');
         navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        navToggle.focus();
+      }
     });
   }
 
   /* --- FAQ acordeão (só existe na home) --- */
-  document.querySelectorAll('.faq-item').forEach(function (item) {
+  document.querySelectorAll('.faq-item').forEach(function (item, index) {
     var q = item.querySelector('.faq-q');
     if (!q) return;
+    var answer = item.querySelector('.faq-a');
+    if (answer) {
+      answer.id = 'faq-answer-' + index;
+      answer.hidden = true;
+      q.setAttribute('aria-controls', answer.id);
+    }
     q.addEventListener('click', function () {
       var wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function (o) { o.classList.remove('open'); });
-      if (!wasOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item').forEach(function (other) {
+        other.classList.remove('open');
+        other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        other.querySelector('.faq-a').hidden = true;
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        q.setAttribute('aria-expanded', 'true');
+        if (answer) answer.hidden = false;
+      }
     });
   });
-
-  /* --- Tour virtual: leva até o formulário de captação (só existe na home) --- */
-  var tourCard = document.getElementById('tourCard');
-  if (tourCard) {
-    tourCard.addEventListener('click', function () {
-      track('cta_click', { cta_id: 'tour_virtual_play' });
-      var offer = document.getElementById('oferta');
-      if (offer) offer.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-    });
-  }
 
   /* --- Máscara de telefone (BR): (99) 99999-9999 ou (99) 9999-9999 --- */
   function maskPhoneBR(value) {
@@ -100,10 +114,10 @@
   var form = document.getElementById('leadForm');
   if (form) {
     var fields = {
-      fName: { el: document.getElementById('fName'), test: function (v) { return v.trim().length > 3; } },
-      fPhone: { el: document.getElementById('fPhone'), test: function (v) { return v.replace(/\D/g, '').length >= 10; } },
-      fEmail: { el: document.getElementById('fEmail'), test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); } },
-      fInterest: { el: document.getElementById('fInterest'), test: function (v) { return v !== ''; } },
+      fName: { el: document.getElementById('fName'), test: function (v) { return v.trim().length > 3 && v.length <= 100; } },
+      fPhone: { el: document.getElementById('fPhone'), test: function (v) { return /^[1-9]{2}(?:[2-5]\d{7}|9\d{8})$/.test(v.replace(/\D/g, '')); } },
+      fEmail: { el: document.getElementById('fEmail'), test: function (v) { return v.length <= 150 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); } },
+      fInterest: { el: document.getElementById('fInterest'), test: function (v) { return ['planta-a', 'planta-b', 'indeciso'].indexOf(v) !== -1; } },
       fConsent: { el: document.getElementById('fConsent'), test: function (v, el) { return el.checked; } }
     };
 
@@ -113,6 +127,7 @@
       var wrap = f.el.closest('.field') || f.el.closest('.field-consent');
       var valid = f.test(f.el.value, f.el);
       if (wrap) wrap.classList.toggle('invalid', !valid);
+      f.el.setAttribute('aria-invalid', String(!valid));
       if (f.el.tagName === 'SELECT' && wrap) wrap.querySelector('label').classList.toggle('has-value', f.el.value !== '');
       return valid;
     }
@@ -120,6 +135,12 @@
     Object.keys(fields).forEach(function (key) {
       var el = fields[key].el;
       if (!el) return;
+      var wrap = el.closest('.field') || el.closest('.field-consent');
+      var error = wrap && wrap.querySelector('.field-error');
+      if (error) {
+        error.id = key + '-error';
+        el.setAttribute('aria-describedby', error.id);
+      }
       el.addEventListener('blur', function () { validateField(key); });
       el.addEventListener('change', function () { validateField(key); });
     });
@@ -127,29 +148,33 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var allValid = Object.keys(fields).map(validateField).every(Boolean);
-      if (!allValid) return;
+      if (!allValid) {
+        var firstInvalid = form.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
 
-      /* Integração real: envie os dados para o CRM/backend aqui
-         (ex.: RD Station, HubSpot, endpoint próprio) antes de exibir o sucesso. */
-      track('generate_lead', {
-        interest: fields.fInterest.el ? fields.fInterest.el.value : ''
-      });
+      // Apenas um evento local de teste, sem valores dos campos.
+      track('demo_form_completed');
+      form.reset();
 
       var offerForm = document.getElementById('offerForm');
       var formSuccess = document.getElementById('formSuccess');
       if (offerForm) offerForm.classList.add('submitted');
-      if (formSuccess) formSuccess.classList.add('show');
+      if (formSuccess) { formSuccess.classList.add('show'); formSuccess.focus(); }
     });
-  }
-
-  /* --- WhatsApp flutuante --- */
-  var whatsappFab = document.getElementById('whatsappFab');
-  if (whatsappFab) {
-    whatsappFab.addEventListener('click', function () {
-      track('cta_click', { cta_id: 'whatsapp_fab' });
+    var demoFields = document.getElementById('demoFields');
+    if (demoFields) demoFields.disabled = false;
+    var testAgain = document.getElementById('testAgain');
+    if (testAgain) testAgain.addEventListener('click', function () {
+      document.getElementById('offerForm').classList.remove('submitted');
+      document.getElementById('formSuccess').classList.remove('show');
+      form.querySelectorAll('.invalid').forEach(function (field) { field.classList.remove('invalid'); });
+      form.querySelectorAll('[aria-invalid]').forEach(function (field) { field.removeAttribute('aria-invalid'); });
+      var interestLabel = fields.fInterest.el.closest('.field').querySelector('label');
+      interestLabel.classList.remove('has-value');
+      fields.fName.el.focus();
     });
-    whatsappFab.href =
-      'https://wa.me/5500000000000?text=' + encodeURIComponent('Olá! Vi o site da Alvorada e quero saber mais.');
   }
 
   /* --- Revelar ao rolar --- */

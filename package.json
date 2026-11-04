@@ -1,0 +1,9 @@
+{
+  "name": "alvorada-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test tests/demo.test.mjs", "check": "node --check script.js && npm test" },
+  "devDependencies": { "playwright": "1.62.1" },
+  "engines": { "node": ">=24" }
+}
